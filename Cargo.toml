@@ -1,0 +1,12 @@
+[package]
+name = "autotorio"
+version = "0.1.0"
+authors = ["deciduously <bendlovy@gmail.com>"]
+
+[dependencies]
+
+lazy_static = "1"
+
+[dev-dependencies]
+
+pretty_assertions = "0.5"
