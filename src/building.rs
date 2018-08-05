@@ -1,6 +1,6 @@
 // building.rs holds the buildings
 #[derive(Debug, PartialEq)]
 pub enum Building {
-    Assembler,
     Drill,
+    Furnace,
 }

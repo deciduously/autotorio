@@ -8,7 +8,7 @@ pub type Rate = u32;
 #[derive(Debug, PartialEq)]
 pub struct Factory {
     pub output: (Item, Rate),
-    pub buildings: Vec<Building>,
+    pub buildings: Vec<(Building, u32)>,
     pub raw_usage: Vec<(Item, Rate)>,
 }
 
@@ -33,8 +33,20 @@ mod tests {
             Factory::new(Item::IronPlate, 1),
             Factory {
                 output: (Item::IronPlate, 1),
-                buildings: vec![Building::Assembler],
+                buildings: vec![(Building::Drill, 1), (Building::Furnace, 1)],
                 raw_usage: vec![(Item::IronOre, 1)],
+            }
+        )
+    }
+
+    #[test]
+    fn test_double_basic_factory() {
+        assert_eq!(
+            Factory::new(Item::IronPlate, 2),
+            Factory {
+                output: (Item::IronPlate, 2),
+                buildings: vec![(Building::Drill, 2), (Building::Furnace, 2)],
+                raw_usage: vec![(Item::IronOre, 2)],
             }
         )
     }
